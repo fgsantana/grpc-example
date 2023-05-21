@@ -1,0 +1,16 @@
+syntax = "proto3";
+package pb;
+option go_package = "/pb";
+service RandomGenerator {
+
+  rpc GenerateRandomNumber (RandomRangeRequest) returns (RandomNumberResponse) {}
+}
+
+message RandomRangeRequest {
+  int32 rangeI = 1;
+  int32 rangeL = 2;
+}
+
+message RandomNumberResponse {
+  int32 rNumber  = 1;
+}

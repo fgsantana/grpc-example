@@ -1,0 +1,18 @@
+./gradlew generateProto
+
+
+
+//to generate only grpc (only proto):
+{protoc-gen-grpc-kotlin.sh}
+{protoc-gen-grpc-kotlin.1.3.0-jdk8.jar}
+
+
+
+[
+// (only for testing purposes) make coroutine when sending request to stub to count delay until response
+//wget to download protoc-gen-grpc-kotlin-1.3.0
+wget -O protoc-gen-grpc-java-1.53.0-linux-x86_64.exe https://search.maven.org/remotecontent?filepath=io/grpc/protoc-gen-grpc-java/1.52.1/protoc-gen-grpc-java-1.52.1-linux-x86_64.exe
+protoc --plugin=protoc-gen-grpckt=protoc-gen-grpc-kotlin.sh  --plugin=protoc-gen-grpc-java=protoc-gen-grpc-java-1.53.0-linux-x86_64.exe   --java_out=src/main/java --grpc-java_out=src/main/java  --kotlin_out=src/main/kotlin --grpckt_out=src/main/kotlin --proto_path=proto randomNumber.proto
+
+]
+
